@@ -1,0 +1,67 @@
+import numpy as np
+from sklearn.naive_bayes import GaussianNB
+import csv
+from sklearn.metrics import accuracy_score
+import random
+from sklearn import preprocessing
+from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
+filename = "letter-recognition.data"
+raw_data = open(filename, 'rb')
+reader = csv.reader(raw_data, delimiter=',', quoting=csv.QUOTE_NONE)
+x = list(reader)
+data = np.array(x)
+
+#split data and labels
+X_data = data[:,1:]
+Y_data = data[:,0]
+
+
+
+#percentage of train and test data 
+perc = 0.75;
+no_of_points = X_data.shape[0]
+print(X_data.shape)
+total_perc = perc*no_of_points
+# print(perc*no_of_points)
+
+#train data
+Y_train = Y_data[:total_perc]
+X_train = X_data[:total_perc]
+X_train = X_train.astype('float')
+
+
+#test data 
+Y_test = Y_data[(total_perc+1):]
+X_test = X_data[(total_perc+1):]
+X_test = X_test.astype('float')
+
+#applying pca
+pca = PCA(n_components=2)
+pca.fit(X_train)
+X_train = pca.transform(X_train)
+X_test = pca.transform(X_test)
+
+#train classifier 
+clf = GaussianNB()
+clf.fit(X_train, Y_train)
+
+#prediction
+y_pred = clf.predict(X_test)
+accuracy = accuracy_score(Y_test, y_pred)
+
+
+print(accuracy)
+
+X_data = X_data.astype('float')
+transformed_data = pca.transform(X_data)
+first_pc = pca.components_[0]
+sec_pc = pca.components_[1]
+for ii, jj in zip(transformed_data, X_data):	
+	plt.scatter(first_pc[0]*ii[0], first_pc[1]*ii[0], color="r")
+	plt.scatter(sec_pc[0]*ii[1], sec_pc[1]*ii[1], color="c")
+	plt.scatter(jj[0], jj[1], color="b")
+plt.xlabel("bonus")
+plt.ylabel("long-term incentive")
+plt.show()
+
