@@ -4,8 +4,8 @@ import csv
 from sklearn.metrics import accuracy_score
 import random
 from sklearn import preprocessing
+from sklearn.neighbors import KNeighborsClassifier
 
-#Display data
 filename = "letter-recognition.data"
 raw_data = open(filename, 'rb')
 reader = csv.reader(raw_data, delimiter=',', quoting=csv.QUOTE_NONE)
@@ -15,6 +15,7 @@ data = np.array(x)
 #split data and labels
 X_data = data[:,1:]
 Y_data = data[:,0]
+
 
 #splitting data into train and test with percentage
 perc = 0;
@@ -42,11 +43,11 @@ for i in range(0, 3):
     X_test = X_test.astype('float')
 
     #train classifier
-    clf = GaussianNB()
-    clf.fit(X_train, Y_train)
+    knn = KNeighborsClassifier(n_neighbors=3)
+    knn.fit(X_train, Y_train)
 
     #prediction
-    y_pred = clf.predict(X_test)
+    y_pred = knn.predict(X_test)
     accuracy = accuracy_score(Y_test, y_pred)
 
     print("accuracy: ")

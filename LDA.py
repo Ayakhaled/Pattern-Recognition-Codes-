@@ -1,5 +1,5 @@
 import numpy as np
-from sklearn.naive_bayes import GaussianNB
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 import csv
 from sklearn.metrics import accuracy_score
 import random
@@ -42,7 +42,7 @@ for i in range(0, 3):
     X_test = X_test.astype('float')
 
     #train classifier
-    clf = GaussianNB()
+    clf = LinearDiscriminantAnalysis()
     clf.fit(X_train, Y_train)
 
     #prediction

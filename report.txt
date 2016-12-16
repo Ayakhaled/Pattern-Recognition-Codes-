@@ -1,0 +1,36 @@
+Naiive bayes:
+-Accuracy when 75% of the data is taken as training: 63.3126625325%
+-Accuracy when 60% of the data is taken as training: 63.7329666208%
+-Accuracy when 50% of the data is taken as training: 63.6763676368%
+
+Naiive Bayes with normalization:
+-Accuracy when 75% of the data is taken as training: 63.3126625325%
+-Accuracy when 60% of the data is taken as training: 63.7329666208%
+-Accuracy when 50% of the data is taken as training: 63.6763676368%
+
+KNN:
+-Accuracy when 75% of the data is taken as training: 94.898979796%
+-Accuracy when 60% of the data is taken as training: 94.3742967871%
+-Accuracy when 50% of the data is taken as training: 93.4793479348%
+
+Pca with KNN:
+-Accuracy when applying pca with 2 components: 19.4038807762%
+-Accuracy when applying pca with 3 components: 37.1274254851%
+-Accuracy when applying pca with 4 components: 58.9717943589%
+-Accuracy when applying pca with 5 components: 70.3940788158%
+-Accuracy when applying pca with 6 components: 82.0764152831%
+-Accuracy when applying pca with 7 components: 86.2572514503%
+-Accuracy when applying pca with 8 components: 88.9177835567%
+-Accuracy when applying pca with 9 components: 91.1582316463%
+-Accuracy when applying pca with 10 components: 92.2784556911%
+-Accuracy when applying pca with 11 components: 93.4986997399%
+-Accuracy when applying pca with 12 components: 93.6987397479%
+-Accuracy when applying pca with 13 components: 94.3788757752%
+-Accuracy when applying pca with 14 components: 94.7189437888%
+-Accuracy when applying pca with 15 components: 94.8789757952%
+
+LDA:
+-Accuracy when 75% of the data is taken as training: 68.9537907582%
+-Accuracy when 60% of the data is taken as training: 69.8087260908%
+-Accuracy when 50% of the data is taken as training: 70.0370037004%
+

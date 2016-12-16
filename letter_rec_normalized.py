@@ -16,6 +16,9 @@ data = np.array(x)
 X_data = data[:,1:]
 Y_data = data[:,0]
 
+#preprocessing: normalization, 0 mean and scaling variance(from -1 to 1)
+X_data = preprocessing.scale(X_data)
+
 #splitting data into train and test with percentage
 perc = 0;
 
@@ -50,4 +53,4 @@ for i in range(0, 3):
     accuracy = accuracy_score(Y_test, y_pred)
 
     print("accuracy: ")
-    print(accuracy)
+    print(accuracy*100)
